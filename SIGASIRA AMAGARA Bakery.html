@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SIGASIRA AMAGARA Bakery</title>
+  <meta name="description" content="SIGASIRA AMAGARA Bakery — fresh breads, pastries and cakes delivered to your door." />
+  <!-- Favicons & Theme -->
+  <link rel="icon" href="#" />
+  <style>
+    /* ----- Unique Bakery Theme ----- */
+    :root{
+      --cream:#FFF7EE;
+      --choco:#6B3E2B;
+      --accent:#E5A55B;
+      --muted:#9B8C7A;
+      --glass: rgba(255,255,255,0.6);
+      --card-shadow: 0 8px 24px rgba(107,62,43,0.12);
+      --radius:16px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--cream),#FFF);color:var(--choco);line-height:1.45}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:linear-gradient(90deg,rgba(229,165,91,0.12),transparent);backdrop-filter: blur(4px)}
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo svg{width:58px;height:58px}
+    .brand{font-weight:700;font-size:18px;letter-spacing:0.6px}
+    nav a{margin-left:14px;text-decoration:none;color:var(--choco);font-weight:600}
+
+    main{max-width:1100px;margin:28px auto;padding:16px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:center}
+    @media(max-width:880px){.hero{grid-template-columns:1fr;}}
+
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.6));padding:22px;border-radius:var(--radius);box-shadow:var(--card-shadow)}
+    .hero h1{margin:0 0 8px;font-size:28px}
+    .hero p{color:var(--muted);margin:0 0 16px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:var(--choco);color:white;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:8px}
+    .btn.ghost{background:transparent;border:2px solid rgba(107,62,43,0.12);color:var(--choco)}
+
+    /* Products grid */
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+    @media(max-width:1000px){.products{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.products{grid-template-columns:1fr}}
+    .card{background:white;border-radius:14px;overflow:hidden;box-shadow:var(--card-shadow);display:flex;flex-direction:column}
+    .card img{width:100%;height:190px;object-fit:cover}
+    .card .content{padding:12px}
+    .card h3{margin:0 0 6px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .tag{display:inline-block;margin-top:10px;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent),#F0C08A);font-weight:700;font-size:13px}
+
+    /* Order form */
+    .order-form{padding:18px;background:linear-gradient(180deg,#FFF,rgba(229,165,91,0.03));border-radius:14px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+    label{font-size:13px;font-weight:600;color:var(--choco)}
+    input,select,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(107,62,43,0.08);margin-top:6px}
+    .small{font-size:12px;color:var(--muted);margin-top:6px}
+
+    footer{margin-top:36px;padding:18px;color:var(--muted);text-align:center}
+
+    /* micro-interactions */
+    .card:hover{transform:translateY(-6px);transition:transform .28s}
+    .btn:active{transform:scale(.98)}
+    .flex{display:flex;gap:12px;align-items:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <!-- Inline SVG Logo: a stylized wheat + loaf -->
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0" stop-color="#E5A55B"/>
+            <stop offset="1" stop-color="#C57B3A"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="48" fill="#FFF7EE" stroke="#F0C08A" stroke-width="2"/>
+        <path d="M30 50c6-10 20-12 28-8 6 3 10 10 6 16-6 10-28 18-36 8-4-6-6-12 2-16z" fill="url(#g)"/>
+        <path d="M40 24c2 6-6 8-10 12" stroke="#6B3E2B" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <div>
+        <div class="brand">SIGASIRA AMAGARA Bakery</div>
+        <div style="font-size:12px;color:var(--muted)">Fresh. Warm. Homemade.</div>
+        <div style="font-size: 12px;color:var(--muted)">Delicious in every Bite</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#products">Products</a>
+      <a href="#order">Order</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Welcome to SIGASIRA AMAGARA Bakery</h1>
+        <p>We craft artisan breads, pastries and cakes every day using high-quality ingredients. Enjoy the comfort of fresh bakes delivered to your home.</p>
+        <div class="flex cta-row">
+          <a class="btn" href="#order">Order Now</a>
+          <a class="btn ghost" href="#products">See Products</a>
+        </div>
+
+        <div style="margin-top:16px;font-size:13px;color:var(--muted)">
+          <strong>Note:</strong> This demo site sends order data via EmailJS (client-side) if you add your EmailJS keys in the script below. A fallback opens your default mail client.
+        </div>
+      </div>
+
+      <aside>
+        <div class="order-form">
+          <h3 style="margin-top:0">Quick Order</h3>
+          <form id="quickOrder">
+            <div class="form-grid">
+              <div>
+                <label for="name">Full name</label>
+                <input id="name" name="name" required placeholder="Jane Doe" />
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" required placeholder="+250 7XX XXX XXX" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label for="location">Delivery address / location</label>
+                <input id="location" name="location" required placeholder="Street, City" />
+              </div>
+            </div>
+            <div style="margin-top:10px">
+              <label for="product">Product</label>
+              <select id="product" name="product">
+                <option value="Wholegrain Loaf">Wholegrain Loaf</option>
+                <option value="Croissant">Croissant</option>
+                <option value="Butter Cake">Butter Cake</option>
+                <option value="Chocolate Muffin">Chocolate Muffin</option>
+              </select>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:10px">
+              <div style="flex:1">
+                <label for="qty">Quantity</label>
+                <input id="qty" name="qty" type="number" min="1" value="1" />
+              </div>
+              <div style="flex:1">
+                <label for="date">Delivery date</label>
+                <input id="date" name="date" type="date" />
+              </div>
+            </div>
+            <div style="margin-top:10px">
+              <label for="note">Note (optional)</label>
+              <textarea id="note" name="note" rows="3" placeholder="Any preferences or instructions"></textarea>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+              <button class="btn" type="submit">Send Order</button>
+              <div id="status" class="small">We will email you confirmation</div>
+            </div>
+          </form>
+
+          <hr style="margin:14px 0;border:none;border-top:1px solid rgba(107,62,43,0.06)" />
+          <div style="font-size:13px;color:var(--muted)">Or contact us directly:</div>
+          <div style="margin-top:10px;display:flex;flex-direction:column;gap:6px">
+            <div>Email: SIAGASIRAAMGARAbakery@gmail.com</div>
+            <div>Phone1: +250 783421542</div>
+            <div>Phone2: +250 783328296</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="products" style="margin-top:28px">
+      <h2>Our Products</h2>
+      <p style="color:var(--muted)">Each product is carefully made and we include a short note on how it benefits the body.</p>
+
+      <div class="products">
+        <article class="card">
+          <img src="wholegrain.jpg" alt="Wholegrain loaf" />
+          <div class="content">
+            <h3>Wholegrain Loaf</h3>
+            <p>Rich in fiber and complex carbohydrates — supports steady energy and digestive health.</p>
+            <span class="tag">High-fiber</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="butter.jpg" alt="Buttery croissant" />
+          <div class="content">
+            <h3>Butter Croissant</h3>
+            <p>Flaky and buttery — a comforting source of quick energy and fat-soluble flavor satisfaction.</p>
+            <span class="tag">Comfort Bite</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="chocolate muffin.jpg" alt="Chocolate muffin" />
+          <div class="content">
+            <h3>Chocolate Muffin</h3>
+            <p>A treat rich in mood-lifting chocolate compounds — perfect for a rewarding snack.</p>
+            <span class="tag">Treat</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="cakes.jpg" alt="Butter cake" />
+          <div class="content">
+            <h3>Butter Cake</h3>
+            <p>Indulgent and dense — provides calories for growth and recovery; best enjoyed in moderation.</p>
+            <span class="tag">Celebration</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="seeded roll.jpg" alt="Seeded roll" />
+          <div class="content">
+            <h3>Seeded Roll</h3>
+            <p>Packed with seeds — a source of healthy fats, minerals and plant protein.</p>
+            <span class="tag">Nutritious</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="Assorted Pastries.jpg" alt="Bag of pastries" />
+          <div class="content">
+            <h3>Assorted Pastries</h3>
+            <p>A colourful box of pastries — perfect to share and enjoy as a balanced occasional treat.</p>
+            <span class="tag">Share Box</span>
+          </div>
+        </article>
+      </div>
+
+    </section>
+
+    <section id="contact" style="margin-top:28px">
+      <h2>Integrations & APIs</h2>
+      <p style="color:var(--muted)">To extend your bakery website we recommend adding the following integrations:</p>
+      <ul style="color:var(--muted)">
+        <li><strong>Google Maps (Embed)</strong> — show your shop and calculate delivery distances.</li>
+        <li><strong>Email sending (SendGrid, Mailgun, or SMTP)</strong> — server-side reliable email confirmations.</li>
+        <li><strong>EmailJS (client-side)</strong> — quick way to send emails from the browser (requires API keys).</li>
+        <li><strong>Payment (Stripe)</strong> — accept card payments securely.</li>
+        <li><strong>Social APIs (Instagram Graph, Facebook SDK)</strong> — pull reviews or show recent posts.</li>
+        <li><strong>Analytics (Google Analytics / GA4)</strong> — track visitors and conversions.</li>
+      </ul>
+      <p style="color:var(--muted);font-size:13px">(You can add these by signing up on the provider sites and adding the small snippets / server endpoints; if you'd like, I can generate those snippets tailored to your account.)</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>© <strong>HIRWA Bakes</strong> — Fresh daily. <span style="display:block;margin-top:6px">Follow us on <a href="#">Instagram</a> • <a href="#">Facebook</a></span></div>
+  </footer>
+
+  <script>
+    // ----- Client-side order handling -----
+    // NOTE: This demo uses EmailJS for client-side email sending.
+    // 1) Sign up at https://www.emailjs.com and create a service + template
+    // 2) Replace the placeholders below with your EmailJS user ID, service ID and template ID
+    // 3) The template should contain the fields used in `templateParams` below
+
+    const EMAILJS_USER_ID = 'YOUR_EMAILJS_USER_ID'; // e.g. user_xxx
+    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'; // e.g. service_xxx
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // e.g. template_xxx
+
+    // optional: load EmailJS if keys are set
+    (function loadEmailJS(){
+      if(EMAILJS_USER_ID && EMAILJS_USER_ID !== 'YOUR_EMAILJS_USER_ID'){
+        const s = document.createElement('script');
+        s.src = 'https://cdn.emailjs.com/sdk/3.2.0/email.min.js';
+        s.onload = () => { emailjs.init(EMAILJS_USER_ID); };
+        document.head.appendChild(s);
+      }
+    })();
+
+    document.getElementById('quickOrder').addEventListener('submit', async function(evt){
+      evt.preventDefault();
+      const form = evt.target;
+      const status = document.getElementById('status');
+      status.textContent = 'Sending...';
+
+      const data = {
+        name: form.name.value.trim(),
+        phone: form.phone.value.trim(),
+        email: form.email.value.trim(),
+        location: form.location.value.trim(),
+        product: form.product.value,
+        qty: form.qty.value,
+        date: form.date.value,
+        note: form.note.value
+      };
+
+      // Basic validation
+      if(!data.name || !data.phone || !data.location){
+        status.textContent = 'Please complete name, phone and delivery address.';
+        return;
+      }
+
+      // If EmailJS configured, use it
+      if(window.emailjs && EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID'){
+        const templateParams = {
+          to_name: 'Mahirwe Bakes',
+          from_name: data.name,
+          reply_to: data.email || data.phone,
+          phone: data.phone,
+          location: data.location,
+          product: data.product,
+          qty: data.qty,
+          date: data.date,
+          note: data.note
+        };
+        try{
+          await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+          status.textContent = 'Order sent! We will email confirmation shortly.';
+          form.reset();
+        }catch(err){
+          console.error(err);
+          status.textContent = 'Failed to send via EmailJS. Opening your mail client instead.';
+          fallbackMail(data);
+        }
+        return;
+      }
+
+      // Fallback: open user's mail client (mailto) with prefilled content
+      fallbackMail(data);
+
+    });
+
+    function fallbackMail(data){
+      const subject = encodeURIComponent('New order from ' + data.name + ' — ' + data.product);
+      const body = encodeURIComponent(
+        `Name: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nAddress: ${data.location}\nProduct: ${data.product}\nQuantity: ${data.qty}\nDelivery date: ${data.date}\nNote: ${data.note}`
+      );
+      const mailto = `mailto:bakery@example.com?subject=${subject}&body=${body}`;
+      window.location.href = mailto;
+    }
+
+    // Small helper: animate nav links on small screens (future expansion)
+  </script>
+</body>
+</html>
